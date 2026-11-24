@@ -674,8 +674,8 @@ export default function App() {
             </div>
           </div>
           <p className="meta">
-            Collection pages and live floor prices appear here at deployment — the collection
-            auto-indexes on both marketplaces once the contract is live.
+            The collection is live on both marketplaces and auto-indexed from the contract —
+            floor prices appear here once the first listings land.
           </p>
         </div>
       </section>
