@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <rect width="400" height="400" rx="28" fill="#FFF3DC"/>
+  <circle cx="42" cy="46" r="5" fill="#F0B64A"/><circle cx="358" cy="46" r="5" fill="#F0B64A"/>
+  <circle cx="42" cy="354" r="5" fill="#F0B64A"/><circle cx="358" cy="354" r="5" fill="#F0B64A"/>
+  <text x="200" y="52" text-anchor="middle" font-family="Verdana, sans-serif" font-size="19" font-weight="bold" letter-spacing="6" fill="#B4762A">RAMENFORGE</text>
+  <ellipse cx="200" cy="212" rx="138" ry="108" fill="#FFFFFF" stroke="#B9A7E6" stroke-width="4"/>
+  <ellipse cx="200" cy="208" rx="106" ry="82" fill="#FDF6E7"/>
+
+  <ellipse cx="200" cy="238" rx="96" ry="26" fill="#FFFFFF" stroke="#D9C8A8" stroke-width="3"/>
+  <g>
+    <circle cx="158" cy="196" r="42" fill="#C97B5A"/>
+    <circle cx="158" cy="196" r="30" fill="#E0A184"/>
+    <path d="M136 178 q22 -14 44 0 q-10 10 -22 10 q-12 0 -22 -10" fill="#F2C4A7"/>
+    <circle cx="238" cy="188" r="46" fill="#C97B5A"/>
+    <circle cx="238" cy="188" r="33" fill="#E0A184"/>
+    <path d="M212 168 q26 -16 52 0 q-12 12 -26 12 q-14 0 -26 -12" fill="#F2C4A7"/>
+  </g>
+  <text x="200" y="356" text-anchor="middle" font-family="Verdana, sans-serif" font-size="27" font-weight="bold" fill="#6B3F14">Chashu Pork</text>
+  <text x="200" y="380" text-anchor="middle" font-family="Verdana, sans-serif" font-size="14" letter-spacing="3" fill="#B4762A">RARE · INGREDIENT</text>
+</svg>

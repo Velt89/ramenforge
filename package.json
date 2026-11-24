@@ -1,0 +1,17 @@
+{
+  "description": "RamenForge \u2014 draw a free random ingredient every day, trade, and cook Ramen -> Deluxe Ramen -> one of 100 Golden Ramen. Founder Chef Pass sale funds the serve-to-earn reward pool. New standalone build, NOT deployed.",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "ethers": "^6.13.0",
+    "hardhat": "^2.22.0"
+  },
+  "name": "ramenforge",
+  "private": true,
+  "scripts": {
+    "check-registry": "node scripts/check-registry.js",
+    "compile": "hardhat compile",
+    "prepare-deploy": "hardhat run scripts/prepare-deploy.js",
+    "test": "hardhat test"
+  },
+  "version": "0.1.0"
+}

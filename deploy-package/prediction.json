@@ -1,0 +1,25 @@
+{
+  "contract": "RamenForge",
+  "compiler": "solc 0.8.24, optimizer 200 runs, evm paris, viaIR true",
+  "runtimeBytes": 24097,
+  "creationBytes": 25936,
+  "gasEstimates": {
+    "creation": 5652060,
+    "buyPass": 346171,
+    "mintDaily": 468587,
+    "reroll": 301406,
+    "cookRamen": 399639,
+    "cookDeluxe": 330675,
+    "cookGolden": 303151,
+    "serve": 270595,
+    "claimBadge": 150976
+  },
+  "create2": {
+    "proxy": "0x4e59b44847b379578588920cA78FbF26c0B4956C",
+    "saltLabel": "velt.ramenforge.v1",
+    "salt": "0xa34b88bd385fe9162f286ed24c2a87d17b7a301a7c5cebc7f9e71faf61f52116",
+    "constructorArg": "0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F",
+    "predictedAddress": "0xbCC65C8693cdEbcF934A38f7Cb0287b2BD801f1D",
+    "note": "PREDICTION ONLY — nothing deployed. Frontend config stays zero-address until a real deployment is verified on-chain."
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "abi": "https://raw.githubusercontent.com/Velt89/ramenforge/main/deploy-package/RamenForge.abi.json",
+  "agentIdRegistry": "0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F",
+  "agentInterface": {
+    "commands": {
+      "execute": "node agent/ramenforge.js execute <requestId>",
+      "leaderboard": "node agent/ramenforge.js leaderboard [--limit n]",
+      "passInfo": "node agent/ramenforge.js pass-info [--address <addr>]",
+      "previewBadge": "node agent/ramenforge.js preview-badge <tier|bronze|silver|gold>",
+      "previewCook": "node agent/ramenforge.js preview-cook <ramen|deluxe|golden>",
+      "previewMint": "node agent/ramenforge.js preview-mint",
+      "previewPass": "node agent/ramenforge.js preview-pass",
+      "previewReroll": "node agent/ramenforge.js preview-reroll",
+      "previewServe": "node agent/ramenforge.js preview-serve <goldenTokenId>",
+      "recipes": "node agent/ramenforge.js recipes",
+      "status": "node agent/ramenforge.js status [--address <addr>]"
+    },
+    "flow": "preview-first, always: run a preview-* command (baw contract-call preview \u2014 a simulation that broadcasts nothing), show the user the decoded summary, and only on their explicit go-ahead run execute <requestId>. Never execute a stale (expired) preview.",
+    "helper": "node agent/ramenforge.js <command> (run from the repo root)",
+    "tool": "Binance Agentic Wallet CLI (baw)"
+  },
+  "badgeTiers": [
+    {
+      "name": "Bronze",
+      "requiredBestStreak": 3,
+      "tier": 1
+    },
+    {
+      "name": "Silver",
+      "requiredBestStreak": 7,
+      "tier": 2
+    },
+    {
+      "name": "Gold",
+      "requiredBestStreak": 14,
+      "tier": 3
+    }
+  ],
+  "chainId": 56,
+  "contract": "0xbCC65C8693cdEbcF934A38f7Cb0287b2BD801f1D",
+  "deploymentStatus": "DEPLOYED on BNB Chain (chainId 56) at 0xbCC65C8693cdEbcF934A38f7Cb0287b2BD801f1D \u2014 the exact predicted CREATE2 address (salt keccak256('velt.ramenforge.v1') via proxy 0x4e59b44847b379578588920cA78FbF26c0B4956C). Deployment block: 135549831. Creation tx: 0x731c854d9224354223f7511c390c5ca0d5141c4774538a85310777175c532eaa. The contract is live; agents may proceed with the preview-first flow.",
+  "description": "A cooking game for Agent ID holders on BNB Chain. Every UTC day each holder draws ONE free ingredient NFT at random: 7 types \u2014 Handmade Noodles, Tonkotsu Broth, Scallion, Nori (uncommon, 19% each), Chashu Pork, Ajitama Egg (rare, 9% each), Wagyu Slice (epic, 6%). Ingredients are tradeable on Element/OpenSea. Cooking burns ingredients: 4 uncommons -> Ramen; Ramen + 2 rares -> Deluxe Ramen; Deluxe + Wagyu Slice -> Golden Ramen (hard cap 100, numbered). Serving a Golden Ramen burns it, mints a soulbound Golden Chef Trophy and pays from the reward pool: min(0.025 BNB, pool / remaining serves). Daily draws build streaks; Feast badges (Bronze 3 / Silver 7 / Gold 14 best streak) are soulbound. The Founder Chef Pass (500 max, 0.005 BNB, 100% of proceeds to the reward pool) grants a daily ingredient reroll and a Season 2 head-start entitlement; it is tradeable and its perks never stack.",
+  "displayName": "RamenForge",
+  "founderPass": {
+    "badge": "Each purchase also mints a soulbound Founder Chef Badge numbered in purchase order to the buyer (kept even if the pass is sold).",
+    "gate": "Pass purchase is open to anyone; the Agent ID gate applies to drawing and cooking.",
+    "maxSupply": 500,
+    "perks": "While holding >= 1 pass: reroll() once per day (burn today's drawn ingredient, draw again); Season 2 head-start entitlement (hasFounderPerks). Perks follow the current holder and never stack.",
+    "priceBNB": "0.005",
+    "proceeds": "100% to the reward pool held by the contract; pool funds can only leave as serve payouts (no withdrawal function exists)"
+  },
+  "ingredients": [
+    {
+      "dropWeightPercent": 19,
+      "index": 0,
+      "name": "Handmade Noodles",
+      "rarity": "Uncommon"
+    },
+    {
+      "dropWeightPercent": 19,
+      "index": 1,
+      "name": "Tonkotsu Broth",
+      "rarity": "Uncommon"
+    },
+    {
+      "dropWeightPercent": 19,
+      "index": 2,
+      "name": "Scallion",
+      "rarity": "Uncommon"
+    },
+    {
+      "dropWeightPercent": 19,
+      "index": 3,
+      "name": "Nori",
+      "rarity": "Uncommon"
+    },
+    {
+      "dropWeightPercent": 9,
+      "index": 4,
+      "name": "Chashu Pork",
+      "rarity": "Rare"
+    },
+    {
+      "dropWeightPercent": 9,
+      "index": 5,
+      "name": "Ajitama Egg",
+      "rarity": "Rare"
+    },
+    {
+      "dropWeightPercent": 6,
+      "index": 6,
+      "name": "Wagyu Slice",
+      "rarity": "Epic"
+    }
+  ],
+  "name": "RamenForge",
+  "network": "BNB Chain (BSC mainnet)",
+  "recipes": {
+    "Deluxe Ramen": "cookDeluxe(uint256 ramenTokenId, uint256[2] rareTokenIds) \u2014 a Ramen plus Chashu Pork and Ajitama Egg",
+    "Golden Ramen": "cookGolden(uint256 deluxeTokenId, uint256 wagyuTokenId) \u2014 a Deluxe Ramen plus a Wagyu Slice; reverts once 100 Golden have been cooked",
+    "Ramen": "cookRamen(uint256[4]) \u2014 one token of each uncommon ingredient (items 0-3), any order",
+    "rule": "Cooking burns the input tokens and requires an Agent ID. Token ids to burn can be picked with ramenCookIds(user) / deluxeCookIds(user) / goldenCookIds(user), which return (ids, ready)."
+  },
+  "repository": "https://github.com/Velt89/ramenforge",
+  "rules": {
+    "badges": "claimable once per tier, gated on BEST streak (not current)",
+    "gate": "mintDaily() and all cooking require an Agent ID (registry balanceOf(sender) > 0). Trading, pass purchase and serving are open.",
+    "oneDrawPerUtcDay": true,
+    "randomness": "keccak256(previous block hash, prevrandao, sender, UTC day, sender draw count) mod 100, revealed at mint. Derived from public chain data \u2014 see README for the honest limits."
+  },
+  "safety": [
+    "Draws, rerolls, cooking, badge claims and serves move 0 BNB of value (gas only). buyPass moves exactly 0.005 BNB into the contract's reward pool \u2014 the preview must show exactly that value and no other balance changes.",
+    "Cooking burns tokens permanently; serving burns a Golden Ramen permanently. Always preview and get the user's explicit go-ahead for that specific action first.",
+    "Preview first, always: a baw preview is a simulation only; execute is a separate step.",
+    "A correct preview shows empty allowanceChanges and authorityChanges and no risks \u2014 anything else means stop.",
+    "Never collect seed phrases, private keys, pairing codes or passwords.",
+    "Verify deployment before writing: if eth_getCode(contract) returns 0x, the contract is not live \u2014 do not preview or execute anything."
+  ],
+  "serve": {
+    "goldenCap": 100,
+    "rule": "serve(uint256 goldenTokenId) burns a Golden Ramen you own, mints a soulbound numbered Golden Chef Trophy, and pays currentServePayout() = min(0.025 BNB, rewardPool / (100 - servesDone)). An empty pool pays 0 and never reverts the serve."
+  },
+  "skill": "https://github.com/Velt89/ramenforge/blob/main/agent/SKILL.md",
+  "trading": {
+    "soulbound": "Feast badges, Golden Chef Trophies, Founder Chef Badges",
+    "standard": "ERC-721 + ERC-2981 (5% royalty to the contract, i.e. into the reward pool)",
+    "tradeable": "ingredients, Ramen, Deluxe Ramen, Golden Ramen, Founder Chef Pass",
+    "venues": [
+      "Element (primary)",
+      "OpenSea (secondary)"
+    ]
+  },
+  "version": "0.1.0"
+}

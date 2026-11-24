@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <rect width="400" height="400" rx="28" fill="#FFF3DC"/>
+  <circle cx="42" cy="46" r="5" fill="#F0B64A"/><circle cx="358" cy="46" r="5" fill="#F0B64A"/>
+  <circle cx="42" cy="354" r="5" fill="#F0B64A"/><circle cx="358" cy="354" r="5" fill="#F0B64A"/>
+  <text x="200" y="52" text-anchor="middle" font-family="Verdana, sans-serif" font-size="19" font-weight="bold" letter-spacing="6" fill="#B4762A">RAMENFORGE</text>
+  <ellipse cx="200" cy="212" rx="138" ry="108" fill="#FFFFFF" stroke="#EAD9B8" stroke-width="4"/>
+  <ellipse cx="200" cy="208" rx="106" ry="82" fill="#FDF6E7"/>
+
+  <path d="M118 168 L282 168 L268 258 Q200 276 132 258 Z" fill="#5B7A99"/>
+  <rect x="156" y="270" width="88" height="11" rx="5" fill="#41597A"/>
+  <ellipse cx="200" cy="168" rx="82" ry="17" fill="#F3E3C2"/>
+  <g fill="#FFFFFF" opacity="0.85">
+    <circle cx="168" cy="164" r="7"/><circle cx="204" cy="158" r="9"/><circle cx="238" cy="165" r="6"/>
+  </g>
+  <g stroke="#D8C49A" stroke-width="5" stroke-linecap="round" fill="none">
+    <path d="M160 128 q6 -12 0 -22"/><path d="M200 132 q6 -12 0 -22"/><path d="M240 128 q6 -12 0 -22"/>
+  </g>
+  <text x="200" y="356" text-anchor="middle" font-family="Verdana, sans-serif" font-size="27" font-weight="bold" fill="#6B3F14">Tonkotsu Broth</text>
+  <text x="200" y="380" text-anchor="middle" font-family="Verdana, sans-serif" font-size="14" letter-spacing="3" fill="#B4762A">UNCOMMON · INGREDIENT</text>
+</svg>
