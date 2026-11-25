@@ -50,9 +50,9 @@ export const PASS_SUPPLY = 500;
 export const PASS_PRICE_BNB = "0.005";
 export const MAX_SERVE_PAYOUT_BNB = "0.025";
 
-// Marketplaces — collections auto-index at deployment (standard ERC-721 +
-// ERC-2981). Until then these point at the marketplaces themselves.
-export const ELEMENT_URL = "https://element.market";
+// Marketplaces — the collection is live and indexed (standard ERC-721 +
+// ERC-2981). Element is the primary market; this is the collection page.
+export const ELEMENT_URL = "https://element.market/collections/ramenforge";
 export const OPENSEA_URL = "https://opensea.io";
 
 export function utcDayNow(): number {
